@@ -90,10 +90,10 @@ enum Shape {
 ```
 ## Code Organization
 
-Use `//Mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.  Note the '<>' around delegate methods.
+Use `//Mark: -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.  Note the '<>' around protocol methods.
 
 ```swift
-#pragma mark - Lifecycle
+//Mark: - Lifecycle
 
 func init() {}
 func dealloc() {}
@@ -101,9 +101,9 @@ func viewDidLoad() {}
 func viewWillAppear(animated: Bool) {}
 func didReceiveMemoryWarning() {}
 
-//Mark - Protocol conformance
+//Mark: - Protocol conformance
 
-//Mark - <UITableViewDataSource>
+//Mark: - <UITableViewDataSource>
 
 func tableView(_ tableView: UITableView,
 cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {}
@@ -111,7 +111,7 @@ cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {}
 func tableView(_ tableView: UITableView,
 numberOfRowsInSection section: Int) -> Int {}
 
-//Mark - <UITableViewDelegate>
+//Mark: - <UITableViewDelegate>
 
 func tableView(_ tableView: UITableView,
 didSelectRowAtIndexPath indexPath: NSIndexPath) {}
