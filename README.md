@@ -2,7 +2,7 @@
 
 ## Background
 
-Before continuing you should take the time to review Apple's Cocoa and Objective-C Guides
+Before continuing you should take the time to review Apple's Cocoa, Swift and Objective-C Guides
 
 * [The Swift Programming Language](https://developer.apple.com/library/prerelease/ios/documentation/swift/conceptual/swift_programming_language/index.html)
 * [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
@@ -91,30 +91,46 @@ enum Shape {
 ## Code Organization
 
 Use `//Mark: -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.  Note the '<>' around protocol methods.
+Functions should be be seperated by a single line break.
 
 ```swift
 //Mark: - Lifecycle
 
-func init() {}
-func dealloc() {}
-func viewDidLoad() {}
-func viewWillAppear(animated: Bool) {}
-func didReceiveMemoryWarning() {}
+func init() {
+  ...
+}
 
-//Mark: - Protocol conformance
+func dealloc() {
+  ...
+}
+
+func viewDidLoad() {
+  ...
+}
+
+func viewWillAppear(animated: Bool) {
+  ...
+}
+
+func didReceiveMemoryWarning() {
+  ...
+ }
 
 //Mark: - <UITableViewDataSource>
 
-func tableView(_ tableView: UITableView,
-cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {}
+func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  ...
+ }
 
-func tableView(_ tableView: UITableView,
-numberOfRowsInSection section: Int) -> Int {}
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  ...
+}
 
 //Mark: - <UITableViewDelegate>
 
-func tableView(_ tableView: UITableView,
-didSelectRowAtIndexPath indexPath: NSIndexPath) {}
+func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  ...
+}
 
 ```
 ## Code Documentation
@@ -157,11 +173,11 @@ else {
 }
 ```
 
-* In method signatures, there should be a space after the method type (-/+ symbol), and before the opening curly bracket. 
-
 **Preferred:**
 ```swift
-func doSomething() {}
+func doSomething() {
+  ...
+}
 ```
 
 **Not Preferred:**
@@ -222,31 +238,9 @@ class Circle: Shape {
 The example above demonstrates the following style guidelines:
 
  + Specify types for properties, variables, constants, argument declarations and other statements with a space after the colon but not before, e.g. `x: Int`, and `Circle: Shape`.
- + Define multiple variables and structures on a single line if they share a common purpose / context.
  + Indent getter and setter definitions and property observers.
  + Don't add modifiers such as `internal` when they're already the default. Similarly, don't repeat the access modifier when overriding a method.
 
-
-### Use of Self
-
-For conciseness, avoid using `self` since Swift does not require it to access an object's properties or invoke its methods.
-
-Use `self` when required to differentiate between property names and arguments in initializers, and when referencing properties in closure expressions (as required by the compiler):
-
-```swift
-class BoardLocation {
-  let row: Int, column: Int
-
-  init(row: Int, column: Int) {
-    self.row = row
-    self.column = column
-    
-    let closure = {
-      println(self.row)
-    }
-  }
-}
-```
 
 ## Function Declarations
 
